@@ -2,6 +2,7 @@
   "name": "next-google-translate-widget",
   "version": "1.0.0",
   "main": "dist/index.js",
+  "description": "A simple Next.js/React component for integrating Google Translate Widget with customizable language options.",
   "types": "dist/index.d.ts",
   "module": "dist/index.mjs",
   "files": [
@@ -13,9 +14,21 @@
     "prepare": "npm run build",
     "dev": "tsup src/index.tsx --watch"
   },
-  "author": "",
+  "author": "Arpan Biswas <connect.arpanbiswas@gmail.com>",
   "license": "MIT",
-  "description": "A simple Next.js/React component for integrating Google Translate Widget with customizable language options.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Battery9/next-google-translate-widget.git"
+  },
+  "keywords": [
+    "google translate",
+    "translation",
+    "widget",
+    "react",
+    "nextjs",
+    "auto translation",
+    "free"
+  ],
   "peerDependencies": {
     "react": "^19.0.0"
   },
