@@ -1,0 +1,29 @@
+{
+  "name": "next-google-translate-widget",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.mjs",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "scripts": {
+    "build": "tsup src/index.tsx --format esm --dts",
+    "prepare": "npm run build",
+    "dev": "tsup src/index.tsx --watch"
+  },
+  "author": "",
+  "license": "MIT",
+  "description": "A simple Next.js/React component for integrating Google Translate Widget with customizable language options.",
+  "peerDependencies": {
+    "react": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.14",
+    "@types/react": "^19.0.12",
+    "react": "*",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.2"
+  }
+}
