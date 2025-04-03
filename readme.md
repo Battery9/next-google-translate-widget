@@ -36,7 +36,7 @@ export default function App() {
 | `includedLanguages` | `string` | `"hi,en"` | Comma-separated languages to include. |
 
 ## 🎥 Demo
-[Live Demo](#)
+[Live Demo](https://codesandbox.io/p/devbox/clhqy9)
 
 ## 🤝 Contributing
 This package needs your contributions! Feel free to fork the repository and create a pull request. 🚀
