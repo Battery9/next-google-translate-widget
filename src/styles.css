@@ -1,0 +1,173 @@
+.ngtContainer {
+  --ngt-bg: rgba(255, 255, 255, 0.6);
+  --ngt-bg-hover: rgba(255, 255, 255, 0.8);
+  --ngt-border: rgba(255, 255, 255, 0.3);
+  --ngt-text: #111;
+  --ngt-menu-bg: rgba(255, 255, 255, 0.65);
+  --ngt-menu-border: rgba(255, 255, 255, 0.25);
+  --ngt-active-bg: rgba(99, 102, 241, 0.15);
+  --ngt-disabled-opacity: 0.6;
+
+  position: relative;
+  display: inline-block;
+  font-family: inherit;
+  z-index: 9999;
+}
+
+/* ================= BUTTON ================= */
+
+.ngtButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  background: var(--ngt-bg);
+  border: 1px solid var(--ngt-border);
+
+  color: var(--ngt-text);
+  transition: all 0.2s ease;
+}
+
+.ngtButton:hover {
+  background: var(--ngt-bg-hover);
+}
+
+.ngtButton:active {
+  transform: scale(0.97);
+}
+
+.ngtButton:disabled {
+  opacity: var(--ngt-disabled-opacity);
+  cursor: not-allowed;
+}
+
+/* ================= MENU ================= */
+
+.ngtMenu {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  min-width: 150px;
+  color: var(--ngt-text);
+  border-radius: 12px;
+  overflow: hidden;
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  background: var(--ngt-menu-bg);
+  border: 1px solid var(--ngt-menu-border);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+  animation: ngtFadeIn 0.18s ease;
+}
+
+/* ================= OPTION ================= */
+
+.ngtOption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.ngtOption:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.ngtOptionActive {
+  background: var(--ngt-active-bg);
+  font-weight: 500;
+}
+
+/* ================= ARROW ================= */
+
+.ngtArrow {
+  font-size: 12px;
+  opacity: 0.6;
+  transition: transform 0.2s ease;
+}
+
+.ngtArrow[data-open] {
+  transform: rotate(180deg);
+}
+
+/* ================= MENU ALIGNMENT ================= */
+
+.ngtMenu--right {
+  left: auto;
+  right: 0;
+}
+
+/* ================= DARK MODE ================= */
+
+@media (prefers-color-scheme: dark) {
+  .ngtContainer {
+    --ngt-bg: rgba(30, 30, 30, 0.6);
+    --ngt-bg-hover: rgba(40, 40, 40, 0.8);
+    --ngt-border: rgba(255, 255, 255, 0.1);
+    --ngt-text: #fff;
+    --ngt-menu-bg: rgba(25, 25, 25, 0.7);
+    --ngt-menu-border: rgba(255, 255, 255, 0.08);
+    --ngt-active-bg: rgba(99, 102, 241, 0.25);
+  }
+
+  .ngtOption:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* ================= ACCESSIBILITY ================= */
+
+.ngtButton:focus-visible {
+  outline: 2px solid var(--ngt-active-bg);
+  outline-offset: 2px;
+}
+
+.ngtOption:focus-visible {
+  background: rgba(0, 0, 0, 0.05);
+  outline: none;
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes ngtFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ================= SPINNER ================= */
+
+.ngtSpinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(128, 128, 128, 0.3);
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: ngtSpin 1s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes ngtSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
