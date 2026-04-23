@@ -1,6 +1,6 @@
 {
   "name": "next-google-translate-widget",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "dist/index.cjs",
   "description": "A simple Next.js/React component for integrating Google Translate Widget with customizable language options.",
   "types": "dist/index.d.ts",
@@ -19,7 +19,9 @@
       "default": "./dist/index.css"
     }
   },
-  "sideEffects": ["dist/index.css"],
+  "sideEffects": [
+    "dist/index.css"
+  ],
   "type": "module",
   "scripts": {
     "build": "tsup && node -e \"require('fs').writeFileSync('dist/styles.d.ts', '')\"",
