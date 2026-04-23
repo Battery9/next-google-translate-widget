@@ -139,7 +139,7 @@ The component loads Google's translate script and mounts the widget in a hidden 
 
 ## 🎥 Demo
 
-[Live Demo](https://codesandbox.io/p/devbox/clhqy9)
+[Live Demo](https://codesandbox.io/p/devbox/m8psjz)
 
 ## 🤝 Contributing
 
