@@ -1,6 +1,6 @@
 {
   "name": "next-google-translate-widget",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "main": "dist/index.cjs",
   "description": "A simple Next.js/React component for integrating Google Translate Widget with customizable language options.",
   "types": "dist/index.d.ts",
@@ -26,7 +26,9 @@
   "scripts": {
     "build": "tsup && node -e \"require('fs').writeFileSync('dist/styles.d.ts', '')\"",
     "prepare": "npm run build",
-    "dev": "tsup --watch"
+    "dev": "tsup --watch",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "author": "Arpan Biswas <connect.arpanbiswas@gmail.com>",
   "license": "MIT",
@@ -49,6 +51,7 @@
   "devDependencies": {
     "@types/node": "^22.13.14",
     "@types/react": "^19.0.12",
+    "prettier": "^3.8.3",
     "react": "*",
     "tsup": "^8.4.0",
     "typescript": "^5.8.2"

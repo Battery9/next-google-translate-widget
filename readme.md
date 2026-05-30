@@ -46,7 +46,7 @@ import "next-google-translate-widget/styles";
 import GoogleTranslate, { LANGUAGES } from "next-google-translate-widget";
 
 const langs = LANGUAGES.filter((l) =>
-  ["en", "es", "fr", "de", "ar", "hi"].includes(l.value)
+  ["en", "es", "fr", "de", "ar", "hi"].includes(l.value),
 );
 
 export default function Navbar() {
@@ -62,7 +62,7 @@ Or pass a fully custom list with your own labels and flag codes:
   languages={[
     { label: "English", value: "en" }, // No Flag Icon.
     { label: "Français", value: "fr", flag: "fr" },
-    { label: "日本語",   value: "ja", flag: "jp" },
+    { label: "日本語", value: "ja", flag: "jp" },
   ]}
 />
 ```
@@ -71,21 +71,21 @@ Flag codes follow [ISO 3166-1 alpha-2](https://flagcdn.com) (e.g. `"us"`, `"fr"`
 
 ## ⚙️ Props
 
-| Prop               | Type                       | Default         | Description                                              |
-| ------------------ | -------------------------- | --------------- | -------------------------------------------------------- |
-| `pageLanguage`     | `string`                   | `"en"`          | BCP-47 code of the page's source language.               |
-| `languages`        | `LanguageOption[]`         | English + Hindi | Languages shown in the dropdown.                         |
-| `menuAlign`        | `"left" \| "right"`       | `"left"`        | Which edge the dropdown aligns to.                       |
-| `onLanguageChange` | `(lang: string) => void`  | —               | Called after the cookie is set, before the page reloads. |
-| `className`        | `string`                   | —               | Extra class on the root element — use for CSS theming.   |
+| Prop               | Type                     | Default         | Description                                              |
+| ------------------ | ------------------------ | --------------- | -------------------------------------------------------- |
+| `pageLanguage`     | `string`                 | `"en"`          | BCP-47 code of the page's source language.               |
+| `languages`        | `LanguageOption[]`       | English + Hindi | Languages shown in the dropdown.                         |
+| `menuAlign`        | `"left" \| "right"`      | `"left"`        | Which edge the dropdown aligns to.                       |
+| `onLanguageChange` | `(lang: string) => void` | —               | Called after the cookie is set, before the page reloads. |
+| `className`        | `string`                 | —               | Extra class on the root element — use for CSS theming.   |
 
 ### `LanguageOption`
 
 ```ts
 interface LanguageOption {
-  label: string;  // displayed name
-  value: string;  // BCP-47 language code
-  flag?: string;  // ISO 3166-1 alpha-2 country code (optional)
+  label: string; // displayed name
+  value: string; // BCP-47 language code
+  flag?: string; // ISO 3166-1 alpha-2 country code (optional)
 }
 ```
 
@@ -110,16 +110,16 @@ Override the CSS variables via the `className` prop:
 <GoogleTranslate className="my-translate" pageLanguage="en" />
 ```
 
-| Variable                 | Default (light)          | Purpose                        |
-| ------------------------ | ------------------------ | ------------------------------ |
-| `--ngt-bg`               | `rgba(255,255,255,0.6)`  | Button background              |
-| `--ngt-bg-hover`         | `rgba(255,255,255,0.8)`  | Button hover background        |
-| `--ngt-border`           | `rgba(255,255,255,0.3)`  | Button border                  |
-| `--ngt-text`             | `#111`                   | Text color                     |
-| `--ngt-menu-bg`          | `rgba(255,255,255,0.65)` | Dropdown background            |
-| `--ngt-menu-border`      | `rgba(255,255,255,0.25)` | Dropdown border                |
-| `--ngt-active-bg`        | `rgba(99,102,241,0.15)`  | Active language highlight      |
-| `--ngt-disabled-opacity` | `0.6`                    | Opacity while loading          |
+| Variable                 | Default (light)          | Purpose                   |
+| ------------------------ | ------------------------ | ------------------------- |
+| `--ngt-bg`               | `rgba(255,255,255,0.6)`  | Button background         |
+| `--ngt-bg-hover`         | `rgba(255,255,255,0.8)`  | Button hover background   |
+| `--ngt-border`           | `rgba(255,255,255,0.3)`  | Button border             |
+| `--ngt-text`             | `#111`                   | Text color                |
+| `--ngt-menu-bg`          | `rgba(255,255,255,0.65)` | Dropdown background       |
+| `--ngt-menu-border`      | `rgba(255,255,255,0.25)` | Dropdown border           |
+| `--ngt-active-bg`        | `rgba(99,102,241,0.15)`  | Active language highlight |
+| `--ngt-disabled-opacity` | `0.6`                    | Opacity while loading     |
 
 ## 🗂 Built-in Languages
 
