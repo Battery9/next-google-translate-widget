@@ -88,6 +88,31 @@ const setCookie = (
   document.cookie = `${name}=${value}${domain ? `;domain=${domain}` : ""};path=${path}`;
 };
 
+// Prevents React crashing when Google Translate moves/wraps a node it's about to remove or insert (facebook/react#11538)
+let domPatchedForTranslate = false;
+
+function patchDomForGoogleTranslate() {
+  if (domPatchedForTranslate) return;
+  domPatchedForTranslate = true;
+
+  const originalRemoveChild = Node.prototype.removeChild;
+  Node.prototype.removeChild = function (this: Node, child) {
+    if (child.parentNode !== this) {
+      if (child.parentNode) return child.parentNode.removeChild(child);
+      return child;
+    }
+    return originalRemoveChild.call(this, child);
+  } as typeof Node.prototype.removeChild;
+
+  const originalInsertBefore = Node.prototype.insertBefore;
+  Node.prototype.insertBefore = function (this: Node, newNode, referenceNode) {
+    if (referenceNode && referenceNode.parentNode !== this) {
+      return this.appendChild(newNode);
+    }
+    return originalInsertBefore.call(this, newNode, referenceNode);
+  } as typeof Node.prototype.insertBefore;
+}
+
 export function GoogleTranslate({
   pageLanguage = "en",
   languages = defaultLanguages,
@@ -108,6 +133,8 @@ export function GoogleTranslate({
 
   // Load Google Translate script
   useEffect(() => {
+    patchDomForGoogleTranslate();
+    
     // Remount case: widget API already available — re-instantiate directly
     if (window.google?.translate?.TranslateElement) {
       new window.google.translate.TranslateElement(
